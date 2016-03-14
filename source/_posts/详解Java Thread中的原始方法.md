@@ -1,7 +1,7 @@
 title: 详解Java Thread中的原始方法
 date: 2011-3-9 22:56:29
 categories: 技术
-tags: [java,线程]
+tags: [Java,线程]
 
 -----
 
@@ -108,7 +108,7 @@ Thread2退出管程
  static void sneakyThrow(Throwable t) {
         Thread.currentThread().stop(t);
     }
-    
+
 ```
 
 
@@ -309,25 +309,3 @@ public void run() {
 ----
 ### Thread.destroy
 **Thread.destroy**从未被实现并且已经弃用。假如它被实现了，也会像**Thread.suspend**一样容易导致死锁。
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -50,21 +50,6 @@ category_map:
   生活: life
   其他: other
 tag_map:
-  # Java: java
-  # 数据库: databasen
-  # Nosql: nosql
-  # 安全: security
-  # 线程: thread
-  # 设计: design
-  # 大数据: bigData
-  # Linux: linux
-  # TCP: tcp
-  # 负载均衡: loadbalance
-  # IM: im
-  # Tigase: tigase
-  # Javacc: javacc
-  # 状态机: stateMachine
-  # BTrace: btrace
 
 
 # Date / Time format
@@ -108,3 +93,5 @@ baidusitemap:
     path: baidusitemap.xml
 
 baidu_analytics: 2ea998c61c5fca0f866fd64121472473
+
+duoshuo_shortnam: chengdedeng

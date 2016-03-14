@@ -1,7 +1,7 @@
 title: Hadoop节点动态管理
 date: 2012-11-30 23:42:29
 categories: 技术
-tags: [bigData]
+tags: [BigData]
 ------
 >hadoop在线运行已经很长一段时间了，下面就是我在上下线datanode和tasktracker步骤。因为datanode节点不一定是tasktracker，即使datanode和tasktracker在同一节点，你也可能只上下线其中一个，所以我在配置dfs和mr的include和exclude的时候，分开配置。
 
