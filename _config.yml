@@ -77,7 +77,7 @@ theme: next
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: https://github.com/chengdedeng/chengdedeng.github.com.git
+  repo: git@github.com:chengdedeng/chengdedeng.github.com.git
   branch: master
 
 feed:
