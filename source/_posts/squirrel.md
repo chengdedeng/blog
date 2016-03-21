@@ -47,7 +47,7 @@ builder.externalTransition().from(MyState.A).to(MyState.B).on(MyEvent.GoToB);
 ``` java
 builder.internalTransition(TransitionPriority.HIGH).within(MyState.A).on(MyEvent.WithinA).perform(myAction);
 ```
-创建一个优先级为**TransitionPriority.HIGH**，内部状态为'A'，当事件为'WithinA'便执行'myAction'的状态机。**internal transition**意思是transition完成之后，没有状态退出和进入。优先级被用来覆盖继承来的状态机中的transition。
+创建一个优先级为**TransitionPriority.HIGH**，内部状态为'A'，当事件为'WithinA'便执行'myAction'的状态机。`internal transition`意思是transition完成之后，没有状态退出和进入。优先级被用来覆盖继承来的状态机中的transition。
 
 ``` java
 builder.externalTransition().from(MyState.C).to(MyState.D).on(MyEvent.GoToD).when(
@@ -63,7 +63,7 @@ builder.externalTransition().from(MyState.C).to(MyState.D).on(MyEvent.GoToD).whe
         }
 }).callMethod("myInternalTransitionCall");
 ```
-当external context满足条件限制时，就创建一个从状态'C'到状态'D'事件为MyEvent.GoToD的**conditional transition**，然后调用的action method为"myInternalTransitionCall"。
+当external context满足条件限制时，就创建一个从状态'C'到状态'D'事件为MyEvent.GoToD的`conditional transition`，然后调用的action method为"myInternalTransitionCall"。
 
 用户也可以采用如下的方式，使用[MVEL](http://mvel.codehaus.org/)(一个强大的描述性语言)来描述条件。
 
@@ -101,12 +101,12 @@ public class MyStateMachine<...> extends AbstractStateMachine<...> {
 ``` java
 protected void transitFromAToBOnGoToB(MyState from, MyState to, MyEvent event, MyContext context)
 ```
-方法名为**transitFrom[SourceStateName]To[TargetStateName]On[EventName]**，参数名为**[MyState, MyState, MyEvent, MyContext]**的方法会被添加到transition "A-(GoToB)->B"的action列表中。当状态机从'A'到'B'且触发的event为GoToB的时候，该方法会被调用。
+方法名为`transitFrom[SourceStateName]To[TargetStateName]On[EventName]`，参数名为`[MyState, MyState, MyEvent, MyContext]`的方法会被添加到transition "A-(GoToB)->B"的action列表中。当状态机从'A'到'B'且触发的event为GoToB的时候，该方法会被调用。
 
 ```java
 protected void transitFromAnyToBOnGoToB(MyState from, MyState to, MyEvent event, MyContext context)
 ```
-方法**transitFromAnyTo[TargetStateName]On[EventName]**会在任何状态通过event 'GoToB'向状态'B'转化的时候调用。
+方法`transitFromAnyTo[TargetStateName]On[EventName]`会在任何状态通过event 'GoToB'向状态'B'转化的时候调用。
 
 ```java
 protected void exitA(MyState from, MyState to, MyEvent event, MyContext context)
@@ -124,7 +124,7 @@ transitFrom[fromStateName]To[toStateName]
 on[eventName]
 ```
 上述这些方法规范还提供了类aop功能，squirrel在任何粒度提供了内置的灵活扩展能力。
-如果需要获取更多信息，请参考测试用例"org.squirrelframework.foundation.fsm.ExtensionMethodCallTest"。
+如果需要获取更多信息，请参考测试用例`org.squirrelframework.foundation.fsm.ExtensionMethodCallTest`。
 0.3.1版本后，还有另一种方法是通过流式API来定义这些类aop扩展方法(谢谢[vittali](https://github.com/vittali)的建议)，例如：
 
 ```java
@@ -158,7 +158,7 @@ builder.localTransitions().between(State.A).and(State._A).
         onMutual(Event.A2ANY, Event.ANY2A).
         perform( Lists.newArrayList(new DecisionMaker("SomeLocalState"), null) );
 ```
-更多的信息可以查看org.squirrelframework.foundation.fsm.samples.DecisionStateSampleTest。
+更多的信息可以查看`org.squirrelframework.foundation.fsm.samples.DecisionStateSampleTest`。
 
 -----
 
@@ -307,12 +307,12 @@ public class ATMStateMachine extends AbstractStateMachine<ATMStateMachine, ATMSt
 
 ### Transition Exception Handling
 
-当状态转换过程中出现异常，已执行的action列表将失效并且状态机会进入error状态，意思就是状态机实例不会再处理任何event。假如用户继续向状态机发送event，便会抛出**IllegalStateException**异常。所有状态转换过程中发生的异常，包括action执行和外部listener调用，会被包装成TransitionException（未检查异常）。目前，默认的异常处理策略非常简单并且粗暴的连续抛出异常，可以参阅**AbstractStateMachine.afterTransitionCausedException**方法。
+当状态转换过程中出现异常，已执行的action列表将失效并且状态机会进入error状态，意思就是状态机实例不会再处理任何event。假如用户继续向状态机发送event，便会抛出**IllegalStateException**异常。所有状态转换过程中发生的异常，包括action执行和外部listener调用，会被包装成TransitionException（未检查异常）。目前，默认的异常处理策略非常简单并且粗暴的连续抛出异常，可以参阅`AbstractStateMachine.afterTransitionCausedException`方法。
 
 ```java
 protected void afterTransitionCausedException(...) { throw e; }
 ```
-假如状态机可以从该异常恢复，用户可以扩展**afterTransitionCausedException**方法，在该方法中添加相应的恢复逻辑。**注意**，在最后别忘记将状态设置为正常。
+假如状态机可以从该异常恢复，用户可以扩展`afterTransitionCausedException`方法，在该方法中添加相应的恢复逻辑。**注意**，在最后别忘记将状态设置为正常。
 
 ```java
 @Override
@@ -342,7 +342,7 @@ protected void afterTransitionCausedException(Object fromState, Object toState, 
 ```java
 void defineSequentialStatesOn(S parentStateId, S... childStateIds);
 ```
-builder.defineSequentialStatesOn(State.A, State.BinA, StateCinA)定义了两个子状态“BinA”和“CinA”从属于父母状态“A”，第一个定义的子状态"A"也就是初始状态。同一个层级状态也可以通过注解来定义，例如：
+`builder.defineSequentialStatesOn(State.A, State.BinA, StateCinA)`定义了两个子状态“BinA”和“CinA”从属于父母状态“A”，第一个定义的子状态"A"也就是初始状态。同一个层级状态也可以通过注解来定义，例如：
 
 ```java
 @States({

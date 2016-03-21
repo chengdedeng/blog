@@ -271,25 +271,27 @@ ERROR_TH(4031, "cancel", "登陆过于频繁或者流量过大")
 
 >我们设计的群已经不是标准的xmpp群了，下面的属性是对于smack或者标准的xmpp群有意义的。
 
-* 房间名称|muc#roomconfig_roomname
-* 描述|muc#roomconfig_roomdesc
-* 允许占有者更改主题|muc#roomconfig_changesubject
-* 最大房间占有者人数|muc#roomconfig_maxusers
-* 其 Presence 是 Broadcast 的角色|muc#roomconfig_presencebroadcast
-* 列出目录中的房间|muc#roomconfig_publicroom
-* 房间是持久的|muc#roomconfig_persistentroom
-* 房间是适度的|muc#roomconfig_moderatedroom
-* 房间仅对成员开放|muc#roomconfig_membersonly
-* 允许占有者邀请其他人|muc#roomconfig_allowinvites
-* 需要密码才能进入房间|muc#roomconfig_passwordprotectedroom
-* 密码|muc#roomconfig_roomsecret
-* 能够发现占有者真实 JID 的角色|muc#roomconfig_whois
-* 登录房间对话|muc#roomconfig_enablelogging
-* 仅允许注册的昵称登录|x-muc#roomconfig_reservednick
-* 允许使用者修改昵称|x-muc#roomconfig_canchangenick
-* 允许用户注册房间|x-muc#roomconfig_registration
-* 房间管理员|muc#roomconfig_roomadmins
-* 房间拥有者|muc#roomconfig_roomowners
+说明|配置项|
+----|----|
+ 房间名称|muc#roomconfig_roomname
+ 描述|muc#roomconfig_roomdesc
+ 允许占有者更改主题|muc#roomconfig_changesubject
+ 最大房间占有者人数|muc#roomconfig_maxusers
+ 其 Presence 是 Broadcast 的角色|muc#roomconfig_presencebroadcast
+ 列出目录中的房间|muc#roomconfig_publicroom
+ 房间是持久的|muc#roomconfig_persistentroom
+ 房间是适度的|muc#roomconfig_moderatedroom
+ 房间仅对成员开放|muc#roomconfig_membersonly
+ 允许占有者邀请其他人|muc#roomconfig_allowinvites
+ 需要密码才能进入房间|muc#roomconfig_passwordprotectedroom
+ 密码|muc#roomconfig_roomsecret
+ 能够发现占有者真实 JID 的角色|muc#roomconfig_whois
+ 登录房间对话|muc#roomconfig_enablelogging
+ 仅允许注册的昵称登录|x-muc#roomconfig_reservednick
+ 允许使用者修改昵称|x-muc#roomconfig_canchangenick
+ 允许用户注册房间|x-muc#roomconfig_registration
+ 房间管理员|muc#roomconfig_roomadmins
+ 房间拥有者|muc#roomconfig_roomowners
 
 ------
 
