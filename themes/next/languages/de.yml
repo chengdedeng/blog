@@ -3,6 +3,8 @@ title:
   category: Kategorie
   tag: Tag
 
+author: Author
+
 menu:
   home: Startseite
   archives: Archiv
@@ -18,6 +20,7 @@ sidebar:
 
 post:
   posted: Veröffentlicht am
+  modified: Updated at
   in: in
   read_more: Weiterlesen
   untitled: Unbenannt

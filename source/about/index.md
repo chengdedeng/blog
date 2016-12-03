@@ -1,5 +1,4 @@
 ---
-title: about
 date: 2011-03-11 17:19:08
 comments: false
 ---
