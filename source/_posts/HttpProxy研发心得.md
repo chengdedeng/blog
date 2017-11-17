@@ -20,7 +20,7 @@ tags: [Http,TLS,Socks5,Proxy,ShadowSocks,Netty,LittleProxy]
 JSSE(Java Secure Socket Extension)之前只是略有接触没有详细研究，为了让Gateway支持TLS/MITM，花了我较多的精力。
 
 1. JDK7/JDK8 JCE的标准不一样，可以参见[链接](https://www.java.com/zh_CN/download/faq/release_changes.xml)，所以导致加密套件和加密长度的不同，反正一句话就是建议大家别用JDK7就对了。
-2. 自签名证书和CA签发证书，对于浏览器来说问题都不大，最多就是信任然后就可以继续访问，但是对于后端代码来说却完全不一样，需要讲KeyStore导入从而才能创建SSLContext；CA签发的证书却不需要这一步。
+2. 自签名证书和CA签发证书，对于浏览器来说问题都不大，最多就是信任然后就可以继续访问，但是对于后端代码来说不太一样。由于CA的证书是受信任的，但是自签名的却不受代码信任，所以代码中我们需要自定义TrustManager，相当于需要将用户在浏览器中手动点击信任的动作用代码给自动化。
 3. MITM中间人拦截，其实就是支持TLS的代理服务器，但是得注意浏览器是不支持开启了HSTS的网站，这个花了我很长时间，开始我以为是不支持开启了HTTP/2的网站，这个我还不敢完全肯定，因为www.jd.com是可以的，但是www.v2ex.com却不幸。支持和不支持的见下面两张图。我刚开始是想用TLS代理来翻墙玩玩，但是其效果非常差，一是加解密非常耗时，二是流量特征明显，不过作为HTTPS抓包工具还是有点用处的。
 	![MITM1](/images/MITM1.png)
 	![MITM2](/images/MITM2.png)
