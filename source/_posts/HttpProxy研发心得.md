@@ -10,7 +10,7 @@ tags: [Http,TLS,Socks5,Proxy,ShadowSocks,Netty,LittleProxy]
 ### HTTP协议
 既然初衷是HttpProxy，那么HTTP(RFC7230-7235/7216)协议是必然需要了解，这是每个开发人员都或多或少了解的协议。我之前自认为对HTTP还是有足够的了解的，但是经过此次实际运用才发现还有很多细节理解的不够。
 
-1. Header头不区分大小写，而我之前所有的获取header都是一律大些，导致在不同的浏览器表现不一致，有些头拿不到。
+1. Header头不区分大小写，而我之前所有的获取header都是一律大写，导致在不同的浏览器表现不一致，有些头拿不到。
 2. Http Method了解不够，我们跨域方案采用的是CORS，所以会有OPTIONS请求去询问后端是否支持跨域。用户登录成功之后会返回一个Token，后续的访问都需要在HEAD中带上该标识，由于发起OPTIONS请求是浏览器的自带行为不是XHR请求，所以没有Token。Gateway对所有的请求都会进行拦截，自然这个OPTIONS就不幸命中，解决方法就是本地Cookie也写一份或者OPTIONS请求直接放行。
 3. X-Forwarded-For，X-Real-IP使用场景和限制没有充分弄清楚。
 
@@ -32,4 +32,3 @@ JSSE(Java Secure Socket Extension)之前只是略有接触没有详细研究，�
 
 	![TcpWindowUpdate](/images/TcpWindowUpdate.png)
 	![socks5handshake](/images/socks5handshake.png)
-
