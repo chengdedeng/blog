@@ -92,6 +92,7 @@ sitemap:
 baidusitemap:
     path: baidusitemap.xml
 
+google_analytics: UA-30366740-1
 baidu_analytics: 2ea998c61c5fca0f866fd64121472473
 
 #duoshuo_shortname: chengdedeng
